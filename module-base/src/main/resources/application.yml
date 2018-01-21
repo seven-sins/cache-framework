@@ -43,14 +43,14 @@ feign:
   hystrix:
     enabled: false
 
-# 禁用hystix的超时时间
+# hystix的超时时间
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 5000
+            timeoutInMilliseconds: 30000
             
 
             
