@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lonecpp.sys.mapper.UserMapper">
+    <resultMap id="userRM" type="com.lonecpp.object.sys.po.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="age" column="age" />
+    </resultMap>
+
+    <select id="find" parameterType="com.lonecpp.object.sys.po.User" resultMap="userRM">
+        SELECT a.id, a.username, a.age, a.password
+        FROM sys_user a
+    </select>
+    
+    <select id="get" parameterType="long" resultMap="userRM">
+        SELECT a.id, a.username, a.age, a.password
+        FROM sys_user a
+        WHERE a.id = #{id}
+    </select>
+    
+    <insert id="insert" parameterType="com.lonecpp.object.sys.po.User" >
+		insert into sys_user
+			(	
+				id,
+				username,
+				password,
+				age
+			)
+		values
+			(	
+				#{id},
+			 	#{username},
+			 	#{password},
+			 	#{age}
+	 	     )
+	</insert>
+	
+	<update id="update" parameterType="com.lonecpp.object.sys.po.User" >
+		update sys_user
+		<set>
+			<if test="username != null">
+				username = #{username},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+			<if test="age != null">
+				age = #{age}
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteById" parameterType="long">
+		delete from sys_user
+		where id = #{id}
+	</delete>
+	
+	<delete id="delete" parameterType="long">
+		delete from sys_user
+		where id in
+		<foreach collection="array" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach>
+	</delete>
+</mapper> 

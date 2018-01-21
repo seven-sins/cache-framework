@@ -1,0 +1,69 @@
+# 服务端口
+server:
+  port: 10081
+
+# dataSource
+spring:
+  application:
+    name: module-base
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.0.208:3306/cache_framework?characterEncoding=utf8
+    username: root
+    password: login
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # redis配置(非集群)
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    pool:
+      max-idle: 666
+      min-idle: 8
+      max-active: 888
+      max-wait: 777
+eureka: 
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client: 
+    server-url: 
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    healthcheck:
+      enabled: true
+    
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  health:
+    enabled: true
+    
+feign:
+  hystrix:
+    enabled: false
+
+# 禁用hystix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            

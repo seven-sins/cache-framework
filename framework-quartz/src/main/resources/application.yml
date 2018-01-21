@@ -1,0 +1,68 @@
+# 服务端口
+server: 
+  port: 10086
+
+# mapper
+# 此处配置使用注解@Value获取失败, 暂用在启动类上使用@MapperScan扫描
+mybatis:
+  params:
+    mapperLocation: com.lonecpp.quartz.mapper
+
+# dataSource
+spring:
+  application:
+    name: framework-quartz
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.0.208:3306/cache_framework?characterEncoding=utf8
+    username: root
+    password: login
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # redis集群
+  redis: 
+    cache: 
+      clusterNodes: 192.168.0.205:7001,192.168.0.205:7002,192.168.0.206:7003,192.168.0.206:7004,192.168.0.207:7005,192.168.0.207:7008
+    
+    # redis配置(非集群)
+    host: 127.0.0.1
+    port: 6379
+    pool:
+      max-idle: 666
+      min-idle: 8
+      max-active: 888
+      max-wait: 777
+      
+# kafka集群
+kafka:
+  broker:
+    address: 192.168.0.205:9092,192.168.0.206:9092,192.168.0.207:9092
+  zookeeper:
+    connect: 192.168.0.205:2181,192.168.0.206:2181,192.168.0.207:2181
+  topic: cache-topic
+
+# eureka
+eureka: 
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client: 
+    server-url: 
+      defaultZone: http://user:password@${eureka.instance.hostname}:${server.port}/eureka/
+    healthcheck:
+      enabled: true
+
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  health:
+    enabled: true
+    
+    
+    
+    
+    
+    
+    
+    

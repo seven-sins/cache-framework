@@ -1,0 +1,47 @@
+server: 
+  port: 8761
+
+spring: 
+  application:
+    name: cloud-eureka-server
+#security: 
+#  basic: 
+#    enabled: true
+#  user:
+#    name: none
+#    password: 123
+
+eureka: 
+  instance: 
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client: 
+    # 设置是否将自己作为客户端注册到注册中心（缺省true）
+    # 这里为不需要（查看@EnableEurekaServer注解的源码，会发现它间接用到了@EnableDiscoveryClient）
+    register-with-eureka: false 
+    # 设置是否从注册中心获取注册信息（缺省true）
+    # 因为这是一个单点的EurekaServer，不需要同步其它EurekaServer节点的数据，故设为false
+    fetch-registry: false
+    serverUrl: 
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck: 
+      enabled: true
+  #server:
+    # 自我保护说明: 
+    # 默认情况下，如果Eureka Server在一定时间内没有接收到某个微服务实例的心跳，Eureka Server将会注销该实例（默认90秒）。
+    # 但是当网络分区故障发生时，微服务与Eureka Server之间无法正常通信，这就可能变得非常危险了----因为微服务本身是健康的，
+    # 此时本不应该注销这个微服务。
+    # Eureka Server通过“自我保护模式”来解决这个问题----当Eureka Server节点在短时间内丢失过多客户端时（可能发生了网络分区故障），
+    # 那么这个节点就会进入自我保护模式。一旦进入该模式，Eureka Server就会保护服务注册表中的信息，
+    # 不再删除服务注册表中的数据（也就是不会注销任何微服务）。当网络故障恢复后，该Eureka Server节点会自动退出自我保护模式。
+    # 自我保护模式是一种对网络异常的安全保护措施。使用自我保护模式，而已让Eureka集群更加的健壮、稳定。
+    #enable-self-preservation: false # 关闭自我保护
+
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  health:
+    enabled: true
+    

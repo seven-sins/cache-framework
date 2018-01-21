@@ -1,0 +1,31 @@
+# 服务端口
+server:
+  port: 10088
+
+# dataSource
+spring:
+  application:
+    name: framework-nginx-lua
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://192.168.0.208:3306/cache_framework?characterEncoding=utf8
+#    username: root
+#    password: login
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+eureka: 
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client: 
+    server-url: 
+      defaultZone: http://user:password@${eureka.instance.hostname}:${server.port}/eureka/
+    healthcheck:
+      enabled: true
+    
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  health:
+    enabled: true
