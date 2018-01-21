@@ -97,10 +97,12 @@ public class QuartzServiceImpl implements QuartzService {
 	public void remove(String jobName, String jobGroupName, String triggerName, String triggerGroupName) {
 		try {
 			TriggerKey triggerKey = TriggerKey.triggerKey(triggerName, triggerGroupName);
-
-			scheduler.pauseTrigger(triggerKey);// 停止触发器
-			scheduler.unscheduleJob(triggerKey);// 移除触发器
-			scheduler.deleteJob(JobKey.jobKey(jobName, jobGroupName));// 删除任务
+			// 停止触发器
+			scheduler.pauseTrigger(triggerKey);
+			// 移除触发器
+			scheduler.unscheduleJob(triggerKey);
+			// 删除任务
+			scheduler.deleteJob(JobKey.jobKey(jobName, jobGroupName));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

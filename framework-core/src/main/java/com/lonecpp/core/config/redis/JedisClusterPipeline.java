@@ -134,6 +134,7 @@ public class JedisClusterPipeline extends PipelineBase implements Closeable {
 		}
 	}
 
+	@Override
 	public void close() {
 		clean();
 		

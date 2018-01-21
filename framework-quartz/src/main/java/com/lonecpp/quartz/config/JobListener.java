@@ -7,6 +7,11 @@ import org.quartz.SchedulerListener;
 import org.quartz.Trigger;
 import org.quartz.TriggerKey;
 
+/**
+ * 监听
+ * @author seven sins
+ * @date 2018年1月21日 下午8:12:33
+ */
 public class JobListener implements SchedulerListener {
 
 	@Override

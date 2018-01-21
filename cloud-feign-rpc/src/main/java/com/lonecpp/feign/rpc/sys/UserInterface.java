@@ -15,10 +15,18 @@ import com.lonecpp.object.sys.po.User;
  */
 @FeignClient(name = "module-sys", configuration = FeignConfiguration.class)
 public interface UserInterface {
-	
+	/**
+	 * 用户列表查询RPC
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value = "/rest/sys/user", method = RequestMethod.GET)
 	public Response<User> find(User user);
-	
+	/**
+	 * 用户查询RPC
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/rest/sys/user/{id}", method = RequestMethod.GET)
 	public Response<User> get(@PathVariable("id") Long id);
 }

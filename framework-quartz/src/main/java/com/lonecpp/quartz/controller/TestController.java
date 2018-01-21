@@ -32,7 +32,7 @@ public class TestController extends BaseController {
 	public Object test() {
 		quartzService.remove("jobName", "jobGroupName", "triggerName", "triggerGroupName");
 		//
-		Map<String, Object> params = new HashMap<String, Object>();
+		Map<String, Object> params = new HashMap<String, Object>(16);
 		params.put("jobName", "测试");
 		params.put("count", 1);
 		
