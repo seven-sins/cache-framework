@@ -27,7 +27,9 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
     healthcheck: 
       enabled: true
-  #server:
+  server:
+    # 清理已关闭的节点(默认60秒) 
+    eviction-interval-timer-in-ms: 60000
     # 自我保护说明: 
     # 默认情况下，如果Eureka Server在一定时间内没有接收到某个微服务实例的心跳，Eureka Server将会注销该实例（默认90秒）。
     # 但是当网络分区故障发生时，微服务与Eureka Server之间无法正常通信，这就可能变得非常危险了----因为微服务本身是健康的，
