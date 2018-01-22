@@ -1,0 +1,40 @@
+# 服务端口
+server:
+  port: 9999
+
+spring:
+  application:
+    name: cloud-config-server
+    
+eureka: 
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client: 
+    server-url: 
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    healthcheck:
+      enabled: true
+    
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  health:
+    enabled: true
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            

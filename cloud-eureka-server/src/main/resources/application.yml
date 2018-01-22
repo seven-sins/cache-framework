@@ -46,4 +46,3 @@ endpoints:
     enabled: true
   health:
     enabled: true
-    

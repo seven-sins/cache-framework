@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>com.lonecpp</groupId>
 		<artifactId>spring-cloud</artifactId>
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>module-base</artifactId>
-	<name>module-base</name>
+	<artifactId>cloud-config-server</artifactId>
+	<name>cloud-config-server</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,30 +18,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.lonecpp</groupId>
-			<artifactId>framework-core</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.lonecpp</groupId>
-			<artifactId>cloud-feign-rpc</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.lonecpp</groupId>
-			<artifactId>cloud-object</artifactId>
-		</dependency>
-		
-		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-hystrix</artifactId>
+		    <artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-		
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
-		</dependency>
-
 	</dependencies>
 	
 	<build>
@@ -51,4 +31,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

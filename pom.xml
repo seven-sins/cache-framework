@@ -21,7 +21,8 @@
     	<module>module-sys</module>
     	<module>module-base</module>
     	<module>cloud-gateway-zuul</module>
-  </modules>
+    	<module>cloud-config-server</module>
+	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -170,6 +171,13 @@
 			    <version>1.4.2.RELEASE</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-hystrix-dashboard -->
+			<dependency>
+			    <groupId>org.springframework.cloud</groupId>
+			    <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+			    <version>1.4.2.RELEASE</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zuul -->
 			<dependency>
 			    <groupId>org.springframework.cloud</groupId>
@@ -177,6 +185,12 @@
 			    <version>1.4.2.RELEASE</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-server -->
+			<dependency>
+			    <groupId>org.springframework.cloud</groupId>
+			    <artifactId>spring-cloud-config-server</artifactId>
+			    <version>1.4.1.RELEASE</version>
+			</dependency>
 			
 			<!-- ============================================ -->
 			

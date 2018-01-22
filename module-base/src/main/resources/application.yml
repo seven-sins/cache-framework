@@ -41,7 +41,7 @@ endpoints:
     
 feign:
   hystrix:
-    enabled: false
+    enabled: true
 
 # hystix的超时时间
 hystrix:
@@ -50,7 +50,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 30000
+            timeoutInMilliseconds: 3000
             
 
             
