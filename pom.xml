@@ -22,7 +22,8 @@
     	<module>module-base</module>
     	<module>cloud-gateway-zuul</module>
     	<module>cloud-config-server</module>
-	</modules>
+    <module>module-elasticsearch</module>
+  </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -191,6 +192,14 @@
 			    <artifactId>spring-cloud-config-server</artifactId>
 			    <version>1.4.1.RELEASE</version>
 			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+			<dependency>
+			    <groupId>org.elasticsearch</groupId>
+			    <artifactId>elasticsearch</artifactId>
+			    <version>6.1.2</version>
+			</dependency>
+			
 			
 			<!-- ============================================ -->
 			
