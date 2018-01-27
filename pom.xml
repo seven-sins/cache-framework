@@ -23,6 +23,7 @@
     	<module>cloud-gateway-zuul</module>
     	<module>cloud-config-server</module>
     <module>module-elasticsearch</module>
+    <module>module-thread</module>
   </modules>
 
 	<parent>
