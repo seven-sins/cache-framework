@@ -15,7 +15,7 @@ public class LogController {
 	
 	@GetMapping("/log/test")
 	public Object logTest() {
-		LOG.info("log4j kafka");
+		LOG.info("{\"userName\":\"abc\"}");
 		return 1;
 	}
 }
