@@ -40,3 +40,8 @@ endpoints:
   health:
     enabled: true
     
+auth:
+  browser:
+    loginPage: /assets/login.html
+    loginType: json # redirect、json
+    

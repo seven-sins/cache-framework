@@ -4,9 +4,9 @@ server:
 spring: 
   application:
     name: cloud-eureka-server
-#security: 
-#  basic: 
-#    enabled: true
+security: 
+  basic: 
+    enabled: false
 #  user:
 #    name: none
 #    password: 123
