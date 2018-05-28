@@ -1,6 +1,9 @@
 package com.lonecpp.sys.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,5 +49,16 @@ public class UserController extends BaseController {
 		userService.update(user);
 		
 		return SUCCESS;
+	}
+	
+	@GetMapping("/me")
+	public Object me(Authentication authentication) {
+		// return SecurityContextHolder.getContext().getAuthentication();
+		return authentication;
+	}
+	
+	@GetMapping("/user")
+	public Object user(@AuthenticationPrincipal UserDetails user) {
+		return user;
 	}
 }

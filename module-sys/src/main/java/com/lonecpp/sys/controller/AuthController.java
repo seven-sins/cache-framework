@@ -15,7 +15,6 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lonecpp.core.base.BaseController;
 import com.lonecpp.core.config.response.Response;
 import com.lonecpp.sys.config.CustomUserDetailService;
-import com.lonecpp.sys.vo.UserParams;
 
 @RestController
 public class AuthController extends BaseController {
@@ -36,13 +34,6 @@ public class AuthController extends BaseController {
 	RequestCache requestCache = new HttpSessionRequestCache();
 	
 	RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-	
-	@PostMapping("/auth/login")
-	public Response<String> login(UserParams user){
-		userDetailService.loadUserByUsername(user.getUsername());
-		
-		return SUCCESS;
-	}
 	
 	@RequestMapping("/authentication/require")
 	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
